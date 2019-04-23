@@ -24,19 +24,19 @@ def basic_test():
     result = intRDD.groupBy(lambda x : x > 2).collect()
     print(sorted([(x, sorted(y)) for (x,y) in result]))
 
-    #统计
+    #
     print(intRDD.stats())
-    #最小值
+    #
     print(intRDD.min())
-    #最大值
+    #
     print(intRDD.max())
-    #标准差
+    #
     print(intRDD.stdev())
-    #计数
+    #
     print(intRDD.count())
-    #求和
+    #
     print(intRDD.sum())
-    #平均
+    #
     print(intRDD.mean())
 
     # key / value
