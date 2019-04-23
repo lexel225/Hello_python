@@ -13,10 +13,14 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
+- script:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- script:
+    pip install -r requirements.txt.
+  displayName: 'Install requirements.txt'
 
 - script: 
     python Hello.py
