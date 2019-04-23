@@ -19,11 +19,9 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: 
-    echo Run Hello.py
     python Hello.py
   displayName: 'Run Hello.py!'
 
 - script: 
-    echo Run spark_demo.py
     python spark_demo.py
   displayName: 'Run spark_demo.py'
