@@ -18,10 +18,12 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- script: py Hello.py
+- script: 
+    python Hello.py
     echo run Hello.py
   displayName: 'Hello python!'
 
-- script: py spark_demo.python
+- script: 
+    python spark_demo.python
     echo run spark_demo
   displayName: 'Run spark_demo'
