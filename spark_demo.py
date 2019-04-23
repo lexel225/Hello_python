@@ -1,6 +1,9 @@
 import findspark
 
-def basic_test():
+def basic_spark_test():
+    PATH_TO_SPARK = 'D:\\GitHub\\Test\\spark-2.4.1-bin-hadoop2.7'
+    findspark.init(PATH_TO_SPARK)
+
     import pyspark
 
     sc = pyspark.SparkContext(appName=__name__)
@@ -80,10 +83,7 @@ def json_test():
     return
 
 def main():
-    PATH_TO_SPARK = 'D:\\GitHub\\Test\\spark-2.4.1-bin-hadoop2.7'
-    findspark.init(PATH_TO_SPARK)
-
-    basic_test()
+    # basic_spark_test()
     
     json_test()
 
