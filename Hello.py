@@ -20,6 +20,9 @@ def main():
 
     A = Hello("Lexel")
     A.sayHello("Kay")
+
+    print("Welcome back {}".format('Lexel'))
+
     return
 
 # __name__ is a python self-maintain variable, the value is different in bellow condition
