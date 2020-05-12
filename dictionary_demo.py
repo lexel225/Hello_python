@@ -1,24 +1,22 @@
 def dictionary_test():
-    dictA = {'name' : 'lexel',
+    dict_A = {'name' : 'lexel',
                 'age' : 18,
                 'number' : '0926'
                 }
 
-    print("dictA", dictA)
+    print("dict_A", dict_A)
 
     # check
-    print("dictA['name'] =", dictA['name'])
+    print("dict_A['name'] =", dict_A['name'])
 
     # Add
-    dictA['gender'] = 'M'
-    print("dictA", dictA)
+    dict_A['gender'] = 'M'
+    print("dict_A", dict_A)
 
     # delete
-    del dictA['age']
-    print("dictA", dictA)
+    del dict_A['age']
+    print("dict_A", dict_A)
 
     # clear
-    dictA.clear()
-    print("dictA", dictA)
-
-    return
+    dict_A.clear()
+    print("dict_A", dict_A)
