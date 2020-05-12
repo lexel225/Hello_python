@@ -6,7 +6,7 @@ install:
 addons:
   sonarcloud:
     organization: "lexel225-sonar"
-    token: "94f174e35e3078f3cd890c11ddd12d1e3edca341"
+    token: $SONAR_TOKEN
 script:
   - pytest
   - sonar-scanner
