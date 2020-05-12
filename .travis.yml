@@ -9,7 +9,7 @@ addons:
   sonarcloud:
     organization: "lexel225-sonar"
     token:
-      secure: "a9d98da9f121073234d3ad6857d54c5600bc187d"
+      secure: $SONAR_TOKEN
 
 script:
   - pytest
