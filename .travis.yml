@@ -3,5 +3,14 @@ python:
   - "3.8"
 install:
   - pip install -r requirements.txt
+
+
+addons:
+  sonarcloud:
+    organization: "lexel225-sonar"
+    token:
+      secure: $SONAR_TOKEN
+
 script:
   - pytest
+  - sonar-scanner
