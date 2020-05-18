@@ -1,4 +1,6 @@
 
+from utils import list_demo
+
 class Hello:
     def __init__(self, name):
         self.name = name
@@ -10,6 +12,8 @@ class Hello:
         return True
 
 def main():
+
+    list_demo.list_test()
 
     A = Hello("Lexel")
     A.say_hello("Kay")
