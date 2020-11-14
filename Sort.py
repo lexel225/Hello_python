@@ -30,13 +30,16 @@ def quick_sort(a: list) -> list:
     return sorted_list
 
 def selection_sort(a: list) -> list:
-
+    unsorted_list = a.copy()
     sorted_list = []
 
-    while len(a) > 0:
-        min = a[0]
-        for i in range(1, len(a)):
-            pass
+    while len(unsorted_list) > 0:
+        min_index = 0
+        for i in range(1, len(unsorted_list)):
+            if unsorted_list[i] < unsorted_list[min_index]:
+                min_index = i
+        sorted_list.append(unsorted_list[min_index])
+        unsorted_list.pop(min_index)
     
     return sorted_list
 
@@ -46,12 +49,13 @@ def main():
 
     sorting_algo = [
         quick_sort
+        ,selection_sort
     ]
 
     test_lists = [
-        random.sample(range(1,100), 20),
-        [],
-        [0]
+        random.sample(range(1,1000), 200)
+        #,[]
+        #,[0]
     ]
 
     for algo in sorting_algo:
