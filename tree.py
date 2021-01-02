@@ -6,6 +6,7 @@ class TreeNode:
         self.left = left_child
         self.right = right_child
 
+
 class Tree:
 
     def __init__(self, root):
@@ -17,11 +18,10 @@ class Tree:
     def InOrder_traversal(self, root):
         if root is None:
             return
-        
+
         self.InOrder_traversal(root.left)
         self.traverse(root)
         self.InOrder_traversal(root.right)
-
 
     def PreOrder_traversal(self, root):
         if root is None:
@@ -30,7 +30,6 @@ class Tree:
         self.traverse(root)
         self.PreOrder_traversal(root.left)
         self.PreOrder_traversal(root.right)
-
 
     def PostOrder_traversal(self, root):
         if root is None:
@@ -41,14 +40,14 @@ class Tree:
         self.traverse(root)
 
     def LevelOrder_traversal(self, root):
-        
+
         node_queue = []
 
         def enqueue(root):
             if root is None:
                 return
-            node_queue.append(root)        
-        
+            node_queue.append(root)
+
         enqueue(root)
 
         while len(node_queue) > 0:
@@ -58,23 +57,25 @@ class Tree:
             enqueue(node.right)
 
 
-root = TreeNode(1,
-        TreeNode(2, 
-            TreeNode(4), TreeNode(5)),
-        TreeNode(3, 
-            TreeNode(6), TreeNode(7))
-        )
+if __name__ == '__main__':
 
-tree = Tree(root)
+    root = TreeNode(1,
+            TreeNode(2, 
+                TreeNode(4), TreeNode(5)),
+            TreeNode(3, 
+                TreeNode(6), TreeNode(7))
+            )
 
-print('InOrder')
-tree.InOrder_traversal(tree.root)
+    tree = Tree(root)
 
-print('PreOrder')
-tree.PreOrder_traversal(tree.root)
+    print('InOrder')
+    tree.InOrder_traversal(tree.root)
 
-print('PostOrder')
-tree.PostOrder_traversal(tree.root)
+    print('PreOrder')
+    tree.PreOrder_traversal(tree.root)
 
-print('LevelOrder')
-tree.LevelOrder_traversal(tree.root)
+    print('PostOrder')
+    tree.PostOrder_traversal(tree.root)
+
+    print('LevelOrder')
+    tree.LevelOrder_traversal(tree.root)
