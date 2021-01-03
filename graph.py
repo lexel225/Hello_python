@@ -1,6 +1,7 @@
 
 WHITE = 0
-BLACK = 1
+GRAY = 1
+BLACK = 2
 
 
 class Vertex:
@@ -45,7 +46,12 @@ class Graph:
             print('Vertext_{}: {}'.format(i, [vertex.key for vertex in vertex_list]))
             i += 1
 
+    def clearGraph(self):
+        for vertex in self.vertexs:
+            vertex.color = WHITE
+
     def BFS(self, start):
+        self.clearGraph()
 
         queue = []
         distance = [None] * len(self.graph_list)
@@ -80,8 +86,41 @@ class Graph:
         print(f'distance: {distance}')
         print(f'predecessor: {predecessor}')
 
+
+
     def DFS(self, start):
-        pass
+        self.clearGraph()
+
+        time = 0
+        discover = [None] * len(self.vertexs)
+        finish = [None] * len(self.vertexs)
+        predecessor = [None] * len(self.vertexs)
+
+        discover[start] = time
+        predecessor[start] = None
+
+        def DFSVisit(self, v_idx):
+
+            if self.vertexs[v_idx].color != WHITE:
+                return
+
+            self.vertexs[v_idx].color = GRAY
+            discover[v_idx] = time
+            time += 1
+
+
+
+
+
+            
+
+
+
+
+
+            
+
+
 
 
 if __name__ == '__main__':
@@ -90,4 +129,7 @@ if __name__ == '__main__':
 
     graph.printGraph()
 
-    graph.BFS(3)
+    #graph.BFS(0)
+    #graph.BFS(6)
+
+    graph.DFS()
