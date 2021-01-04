@@ -87,17 +87,8 @@ class Graph:
         print(f'predecessor: {predecessor}')
 
 
-
     def DFS(self, start):
         self.clearGraph()
-
-        time = 0
-        discover = [None] * len(self.vertexs)
-        finish = [None] * len(self.vertexs)
-        predecessor = [None] * len(self.vertexs)
-
-        discover[start] = time
-        predecessor[start] = None
 
         def DFSVisit(self, v_idx):
 
@@ -107,6 +98,16 @@ class Graph:
             self.vertexs[v_idx].color = GRAY
             discover[v_idx] = time
             time += 1
+
+        time = 0
+        discover = [None] * len(self.vertexs)
+        finish = [None] * len(self.vertexs)
+        predecessor = [None] * len(self.vertexs)
+
+        discover[start] = time
+        predecessor[start] = None
+
+
 
 
 
