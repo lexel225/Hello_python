@@ -90,38 +90,33 @@ class Graph:
     def DFS(self, start):
         self.clearGraph()
 
-        def DFSVisit(self, v_idx):
+        self.time = 0
+        discover = [None] * len(self.vertexs)
+        finish = [None] * len(self.vertexs)
+        predecessor = [None] * len(self.vertexs)
+
+        def DFSVisit(self, v_idx, predecessor_idx):
 
             if self.vertexs[v_idx].color != WHITE:
                 return
 
             self.vertexs[v_idx].color = GRAY
-            discover[v_idx] = time
-            time += 1
+            discover[v_idx] = self.time
+            self.time += 1
+            predecessor[v_idx] = predecessor_idx
 
-        time = 0
-        discover = [None] * len(self.vertexs)
-        finish = [None] * len(self.vertexs)
-        predecessor = [None] * len(self.vertexs)
+            for vertex in self.graph_list[v_idx]:
+                DFSVisit(self, vertex.index, v_idx)
+            self.vertexs[v_idx].color = BLACK
+            finish[v_idx] = self.time
+            self.time += 1
+        
+        DFSVisit(self, start, None)
 
-        discover[start] = time
-        predecessor[start] = None
-
-
-
-
-
-
-
-            
-
-
-
-
-
-            
-
-
+        print(f'DFS start from vertex_{start}')
+        print(f'discover: {discover}')
+        print(f'predecessor: {predecessor}')
+        print(f'finish: {finish}')
 
 
 if __name__ == '__main__':
@@ -133,4 +128,4 @@ if __name__ == '__main__':
     #graph.BFS(0)
     #graph.BFS(6)
 
-    graph.DFS()
+    graph.DFS(0)
