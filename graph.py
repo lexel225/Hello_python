@@ -128,4 +128,4 @@ if __name__ == '__main__':
     #graph.BFS(0)
     #graph.BFS(6)
 
-    graph.DFS(0)
+    graph.DFS(6)
