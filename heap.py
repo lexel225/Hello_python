@@ -1,3 +1,4 @@
+import random
 
 class HeapNode:
 
@@ -6,41 +7,44 @@ class HeapNode:
 
 class Heap:
 
-    def __init__(self, num_of_nodes):
+    def __init__(self, heap_length):
 
         self.HeapArray = [None]
 
-        for i in range(1, num_of_nodes + 1):
+        for i in random.sample(range(1,100), heap_length):
             self.HeapArray.append(HeapNode(i))
-        
-        self.num_of_nodes = num_of_nodes
+
+        self.heap_length = heap_length
     
     def swap(self, i, j):
         tmp = self.HeapArray[i]
         self.HeapArray[i] = self.HeapArray[j]
         self.HeapArray[j] = tmp
  
-    def MinHeapify(self):
-        for i in range(1, self.num_of_nodes//2 ):
-            root = self.HeapArray[i].key
-            left = self.HeapArray[2*i].key
-            right = self.HeapArray[2*i + 1].key
+    def MinHeapify(self, i):
+        left = 2*i
+        right = 2*i + 1
 
-            if root < left and root < right:
-                continue
-            elif root > left and root < right:
-                self.swap(i, 2*i)
-                continue
-            elif root > right and root < left:
-                self.swap(i, 2*i + 1)
-            else:
-                if right > left:
-                    self.swap(i, 2*i)
-                else:
-                    self.swap(i, 2*i + 1)
+        smallest = i
+
+        if left <= self.heap_length and self.HeapArray[left].key < self.HeapArray[smallest].key:
+            smallest = left
+        
+        if right <= self.heap_length and self.HeapArray[right].key < self.HeapArray[smallest].key:
+            smallest = right
+        
+        if smallest != i:
+            self.swap(i, smallest)
+            self.MinHeapify(smallest)
+
+
+    def BuildMinHeapify(self):
+        for i in range(self.heap_length//2, 0, -1):
+            self.MinHeapify(i)
+
     
     def isMinHeap(self):
-        for i in range(1, self.num_of_nodes//2):
+        for i in range(1, self.heap_length//2):
             root = self.HeapArray[i].key
             left = self.HeapArray[2*i].key
             right = self.HeapArray[2*i + 1].key
@@ -53,17 +57,15 @@ class Heap:
         return True
 
     def printHeap(self):
-        for i in range(1, self.num_of_nodes + 1):
-            print(self.HeapArray[i].key)
-
-
+        for i in range(1, self.heap_length + 1):
+            print(f'[{i}]: {self.HeapArray[i].key}')
 
 
 if __name__ == '__main__':
 
     heap = Heap(10)
 
-    heap.MinHeapify()
+    heap.BuildMinHeapify()
     heap.isMinHeap()
     heap.printHeap()
         
