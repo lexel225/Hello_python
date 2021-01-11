@@ -29,6 +29,35 @@ def quick_sort(a: list) -> list:
     sorted_list.extend(right_sorted)
     return sorted_list
 
+def quick_sort_2(a: list) -> list:
+    # No extra space version
+    # totally within array operation
+
+    def swap(a: list, x, y):
+        tmp = a[x]
+        a[x] = a[y]
+        a[y] = tmp
+
+    def QuickSort(a: list, start, end):
+        if start >= end:
+            return
+
+        i = start - 1
+        
+        for j in range(start, end):
+            if a[j] < a[end]:
+                i += 1
+                swap(a, i, j)
+        swap(a, i+1, end)
+        
+        QuickSort(a, start, i)
+        QuickSort(a, i+2, end)
+    
+    sorted_list = a.copy()
+    QuickSort(sorted_list, 0, len(sorted_list) - 1)
+    return sorted_list
+
+
 def selection_sort(a: list) -> list:
     unsorted_list = a.copy()
     sorted_list = []
@@ -48,7 +77,8 @@ def main():
     print('Let\'s sorting!')
 
     sorting_algo = [
-        quick_sort
+        quick_sort_2
+        ,quick_sort
         ,selection_sort
     ]
 
