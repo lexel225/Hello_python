@@ -21,7 +21,7 @@ class Graph:
     [vertex_3] -> vertex_1 -> vertex_4
     [vertex_4] -> vertex_1 -> vertex_3 -> vertex_5
     [vertex_5] -> vertex_2 -> vertex_4 -> vertex_6
-    [vertex_6] -> vertex_2 -> vertext_6
+    [vertex_6] -> vertex_2 -> vertex_6
     '''
     vertexs = []
     graph_list = []
@@ -31,19 +31,19 @@ class Graph:
         for i in range(7):
             self.vertexs.append(Vertex(i))
 
-        self.graph_list.append([self.vertexs[1], self.vertexs[2]])
-        self.graph_list.append([self.vertexs[0], self.vertexs[3], self.vertexs[4]])
-        self.graph_list.append([self.vertexs[0], self.vertexs[5], self.vertexs[6]])
-        self.graph_list.append([self.vertexs[1], self.vertexs[4]])
-        self.graph_list.append([self.vertexs[1], self.vertexs[3], self.vertexs[5]])
-        self.graph_list.append([self.vertexs[2], self.vertexs[4], self.vertexs[6]])
-        self.graph_list.append([self.vertexs[2], self.vertexs[5]])
+        self.graph_list.append([(self.vertexs[1], 1), (self.vertexs[2], 2)])
+        self.graph_list.append([(self.vertexs[0], 3), (self.vertexs[3], 4), (self.vertexs[4], 5)])
+        self.graph_list.append([(self.vertexs[0], 6), (self.vertexs[5], 7), (self.vertexs[6], 8)])
+        self.graph_list.append([(self.vertexs[1], 9), (self.vertexs[4], 10)])
+        self.graph_list.append([(self.vertexs[1], 11), (self.vertexs[3], 12), (self.vertexs[5], 13)])
+        self.graph_list.append([(self.vertexs[2], 14), (self.vertexs[4], 15), (self.vertexs[6], 16)])
+        self.graph_list.append([(self.vertexs[2], 17), (self.vertexs[5], 18)])
 
     def printGraph(self):
         i = 0
 
         for vertex_list in self.graph_list:
-            print('Vertext_{}: {}'.format(i, [vertex.key for vertex in vertex_list]))
+            print('Vertext_{}: {}'.format(i, [(vertex.key,weight) for vertex,weight in vertex_list]))
             i += 1
 
     def clearGraph(self):
@@ -71,7 +71,7 @@ class Graph:
         while len(queue) > 0:
             vertex_index = queue.pop(0)
 
-            for vertex in self.graph_list[vertex_index]:
+            for vertex,weight in self.graph_list[vertex_index]:
                 if vertex.color == BLACK:
                     continue
                 else:
@@ -105,7 +105,7 @@ class Graph:
             self.time += 1
             predecessor[v_idx] = predecessor_idx
 
-            for vertex in self.graph_list[v_idx]:
+            for vertex,weight in self.graph_list[v_idx]:
                 DFSVisit(self, vertex.index, v_idx)
             self.vertexs[v_idx].color = BLACK
             finish[v_idx] = self.time
@@ -117,6 +117,15 @@ class Graph:
         print(f'discover: {discover}')
         print(f'predecessor: {predecessor}')
         print(f'finish: {finish}')
+
+    def Dijkstra(self, start):
+        
+        ready = []
+
+        distance = [None] * len(self.graph_list)
+        predecessor = [None] * len(self.graph_list)
+
+        
 
 
 if __name__ == '__main__':
