@@ -69,8 +69,3 @@ if __name__ == '__main__':
     heap.isMinHeap()
     heap.printHeap()
         
-            
-
-
-
-
