@@ -12,6 +12,12 @@ class Tree:
     def __init__(self, root):
         self.root = root
 
+    @staticmethod
+    def get_height(node: TreeNode):
+        if node is None:
+            return -1
+        return max(Tree.get_height(node.left), Tree.get_height(node.right)) + 1
+
     def traverse(self, node):
         print(node.key)
 
@@ -79,3 +85,5 @@ if __name__ == '__main__':
 
     print('LevelOrder')
     tree.LevelOrder_traversal(tree.root)
+
+    print(f'{Tree.get_height(root)}')
