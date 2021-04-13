@@ -71,7 +71,7 @@ class Graph:
         while len(queue) > 0:
             vertex_index = queue.pop(0)
 
-            for vertex,weight in self.graph_list[vertex_index]:
+            for vertex,_ in self.graph_list[vertex_index]:
                 if vertex.color == BLACK:
                     continue
                 else:
@@ -105,7 +105,7 @@ class Graph:
             self.time += 1
             predecessor[v_idx] = predecessor_idx
 
-            for vertex,weight in self.graph_list[v_idx]:
+            for vertex,_ in self.graph_list[v_idx]:
                 DFSVisit(self, vertex.index, v_idx)
             self.vertexs[v_idx].color = BLACK
             finish[v_idx] = self.time
