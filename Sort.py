@@ -6,8 +6,8 @@ def is_sorted(before: list, after: list) -> bool:
     if sorted(before) == after:
         return True
     else:
-        print(f'BEFORE: {before}')
-        print(f'AFTER : {after}')
+        #print(f'BEFORE: {before}')
+        #print(f'AFTER : {after}')
         return False
 
 def quick_sort(a: list) -> list:
@@ -72,6 +72,11 @@ def selection_sort(a: list) -> list:
     
     return sorted_list
 
+def insertion_sort(a: list) -> list:
+    return a
+
+def merge_sort(a: list) -> list:
+    return a
 
 def main():
     print('Let\'s sorting!')
@@ -80,6 +85,8 @@ def main():
         quick_sort_2
         ,quick_sort
         ,selection_sort
+        ,insertion_sort
+        ,merge_sort
     ]
 
     test_lists = [
