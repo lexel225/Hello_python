@@ -26,7 +26,7 @@ def list_test():
     print('listB =', listB)
 
     listA.append(listB)
-    print('listA.append(listB) =', listA)
+    print(f'listA.append(listB) = {listA}')
 
     # for x in Y
     print("for item in listA")
