@@ -41,3 +41,7 @@ def list_test():
     print("listA.pop() =", listA.pop())
     print('listA =', listA)
     return
+
+
+if __name__ == '__main__':
+    print('This is main function')
